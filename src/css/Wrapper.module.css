@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: auto;
+    margin-top: 80px;
+}
+
+
+@media (min-width: 1200px) {
+    .container{
+        width: 1160px;
+    }
+}
