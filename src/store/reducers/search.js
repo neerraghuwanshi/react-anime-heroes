@@ -6,6 +6,7 @@ import {
     SET_MORE_SEARCH_DATA,
     SET_SEARCH_PAGE,
     SET_IS_MORE_SEARCH_DATA,
+    SET_CANCEL_TOKEN,
 } from '../actions/search';
 
 
@@ -16,6 +17,7 @@ const initialState = {
     data: null,
     page: 1,
     isMoreSearchData: false,
+    cancelToken: null,
 }
 
 export const searchReducer = (state=initialState, action) => {
@@ -66,6 +68,11 @@ export const searchReducer = (state=initialState, action) => {
             return {
                 ...state,
                 isMoreSearchData: action.isMoreSearchData
+            }
+        case SET_CANCEL_TOKEN:
+            return {
+                ...state,
+                cancelToken: action.cancelToken
             }
         default:
             return state

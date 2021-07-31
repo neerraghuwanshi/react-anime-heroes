@@ -8,21 +8,27 @@ import {
     setMoreSearchData,
     setIsMoreSearchData,
     setSearchPage,
+    setCancelToken,
 } from "./search"
 
 
 export const fetchAnimes = (query, isNewQuery) => {
     return async (dispatch, getState) => {
-
+        
+        let cancelToken = getState().search.cancelToken
         let page = getState().search.page
         let isMoreSearchData = getState().search.isMoreSearchData
 
-        if (isNewQuery){
-            page = 1
+        if (cancelToken !== null){
+            cancelToken.cancel('Request Cancelled')
         }
+
+        cancelToken = axios.CancelToken.source()
+        dispatch(setCancelToken(cancelToken))
 
         if (isMoreSearchData || isNewQuery){
             if (isNewQuery){
+                page = 1
                 dispatch(setSearchLoading())
             }
             else{
@@ -30,7 +36,10 @@ export const fetchAnimes = (query, isNewQuery) => {
             }
 
             try {
-                const response = await axios.get(`https://api.jikan.moe/v3/search/anime?q=${query}&limit=16&page=${page}`)
+                const response = await axios.get(
+                    `https://api.jikan.moe/v3/search/anime?q=${query}&limit=16&page=${page}`,{
+                    cancelToken: cancelToken.token
+                })
                 if (isNewQuery){
                     dispatch(setSearchData(response.data.results))
                 }
@@ -48,7 +57,9 @@ export const fetchAnimes = (query, isNewQuery) => {
                 }
             }
             catch (error) {
-                dispatch(setSearchError())
+                if (error.message !== 'Request Cancelled'){
+                    dispatch(setSearchError())
+                }
             }
         }
     }

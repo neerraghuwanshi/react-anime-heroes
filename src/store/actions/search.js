@@ -5,6 +5,7 @@ export const SET_SEARCH_DATA = 'SET_SEARCH_DATA'
 export const SET_MORE_SEARCH_DATA = 'SET_MORE_SEARCH_DATA'
 export const SET_SEARCH_PAGE = 'SET_SEARCH_PAGE'
 export const SET_IS_MORE_SEARCH_DATA = 'SET_IS_MORE_SEARCH_DATA'
+export const SET_CANCEL_TOKEN = 'SET_CANCEL_TOKEN'
 
 export const setSearchLoading = () => {
     return {
@@ -49,5 +50,12 @@ export const setIsMoreSearchData = (isMoreSearchData) => {
     return {
         type: SET_IS_MORE_SEARCH_DATA,
         isMoreSearchData,
+    }
+}
+
+export const setCancelToken = (cancelToken) => {
+    return {
+        type: SET_CANCEL_TOKEN,
+        cancelToken,
     }
 }

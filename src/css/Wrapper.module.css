@@ -3,9 +3,22 @@
     flex-direction: column;
     padding: 20px;
     margin: auto;
-    margin-top: 80px;
+    margin-top: 70px;
 }
 
+
+@media (min-width: 768px) {
+    .container{
+        width: 728px;
+        margin-top: 80px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .container{
+        width: 960px;
+    }
+}
 
 @media (min-width: 1200px) {
     .container{

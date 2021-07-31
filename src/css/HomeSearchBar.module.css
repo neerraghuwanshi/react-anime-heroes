@@ -1,62 +1,107 @@
 :root{
-    --homeSearchBarBackgroundColor: rgba(255, 255, 255, .5);
-    --homeSearchBarBorderColor: rgba(255, 255, 255, .4);
     --homeSearchBarTextColor: white;
+    --homeSearchBarBorderColor: rgba(255, 255, 255, .4);
+    --homeSearchBarBackgroundColor: rgba(255, 255, 255, .5);
     --homeSearchBarButtonTextColor: rgba(255, 255, 255, .8);
 }
 
 .container{
-    width: 100%;
+    padding: 20px;
     display: flex;
     position: fixed;
-    top: 20px;
-    width: 1120px;
-    left: calc(50vw - 560px)
+    top: 0;
+    left: 0;
+}
+
+.searchBar, .button{
+    height: 50px;
+    font-size: 14px;
+    background: var(--homeSearchBarBackgroundColor);
+    border: 1px solid var(--homeSearchBarBorderColor);
 }
 
 .searchBar{
-    background: var(--homeSearchBarBackgroundColor);
+    outline: 0;
+    width: calc(100vw - 100px);
+    padding: 0 20px;
+    border-right-width: 0;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
-    border: 1px solid var(--homeSearchBarBorderColor);
-    border-right-width: 0;
-    height: 60px;
-    width: 1060px;
-    padding: 0 20px;
-    font-size: 20px;
-    outline: 0;
     color: var(--homeSearchBarTextColor);
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: var(--homeSearchBarButtonTextColor);
+/* Chrome, Firefox, Opera, Safari 10.1+ */
+::placeholder {
     opacity: 1; /* Firefox */
-    font-size: 18px;
+    color: var(--homeSearchBarButtonTextColor);
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
+/* Internet Explorer 10-11 */
+:-ms-input-placeholder {
     color: var(--homeSearchBarButtonTextColor);
-    font-size: 18px;
 }
 
-::-ms-input-placeholder { /* Microsoft Edge */
+/* Microsoft Edge */
+::-ms-input-placeholder {
     color: var(--homeSearchBarButtonTextColor);
-    font-size: 18px;
 }
 
 .button{
-    background: var(--homeSearchBarBackgroundColor);
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-    border: 1px solid var(--homeSearchBarBorderColor);
-    border-left-width: 0;
-    height: 60px;
     width: 60px;
     padding: 0 20px;
-    font-size: 20px;
+    border-left-width: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
     color: var(--homeSearchBarButtonTextColor);
 }
 
 .button:hover{
     cursor: pointer;
+}
+
+
+@media (min-width: 300px){
+    .searchBar, .button{
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 768px){
+    .container{
+        left: calc((100vw - 728px)/2);
+    }
+    .searchBar, .button{
+        font-size: 18px;
+        height: 60px;
+    }
+    .searchBar{
+        width: 618px;
+    }
+    .button{
+        width: 70px;
+    }
+}
+
+@media (min-width: 1000px){
+    .container{
+        left: calc((100vw - 960px)/2);
+    }
+    .searchBar{
+        width: 850px;
+    }
+}
+
+@media (min-width: 1200px){
+    .container{
+        left: calc((100vw - 1160px)/2);
+    }
+    .searchBar, .button{
+        font-size: 20px;
+    }
+    .searchBar{
+        width: 1040px;
+    }
+    .button{
+        width: 80px;
+    }
 }

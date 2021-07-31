@@ -1,34 +1,141 @@
 .container{
-    width: 100%;
-    min-height: calc(100vh - 120px);
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding-top: 20px;
+    margin-bottom: -20px;
+}
+
+.image, .textContainer{
+    width: 100%;
 }
 
 .image{
-    width: 400px;
-    height: 500px;
+    height: auto;
     border-radius: 10px;
     object-fit: cover;
+    background-color: white;
 }
 
-.table{
-    border-spacing: 30px;
+.textContainer{
+    height: 500px;
+    padding: 20px;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .key, .value{
-    padding: 10px;
     text-align: left;
 }
 
 .key{
-    font-size: 18px;
+    font-size: 14px;
     color: var(--homeSearchBarTextColor);
 }
 
 .value{
-    font-size: 16px;
+    width: 30vw;
+    font-size: 12px;
     color: var(--homeSearchBarBackgroundColor);
+}
+
+
+@media (min-width: 300px){
+    .key{
+        font-size: 15px;
+    }
+    .value{
+        width: 40vw;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 400px){
+    .value{
+        width: 45vw;
+    }
+}
+
+@media (min-width: 500px){
+    .image, .textContainer{
+        width: 70vw;
+    }
+    .value{
+        width: 30vw;
+    }
+}
+
+@media (min-width: 768px){
+    .container{
+        margin-bottom: 20px;
+        min-height: calc(100vh - 140px);
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .image{
+        width: 300px;
+        height: 375px;
+    }
+    .textContainer{
+        width: 330px;
+        height: 375px;
+        padding: 20px 0;
+        margin: 0;
+        margin-left: 40px;
+    }
+    .key{
+        font-size: 16px;
+    }
+    .value{
+        font-size: 14px;
+        width: 220px;
+    }
+}
+
+@media (min-width: 1000px){
+    .image{
+        width: 350px;
+        height: 437.5px;
+    }
+    .textContainer{
+        width: 437.5px;
+        height: 437.5px;
+        margin-left: 50px;
+    }
+    .key{
+        font-size: 17px;
+    }
+    .value{
+        font-size: 15px;
+        width: 300px;
+    }
+}
+
+@media (min-width: 1200px){
+    .image{
+        width: 400px;
+        height: 500px;
+    }
+    .textContainer{
+        width: 500px;
+        height: 500px;
+        margin-left: 50px;
+    }
+    .key{
+        font-size: 18px;
+    }
+    .value{
+        font-size: 16px;
+        width: 350px;
+    }
 }

@@ -27,9 +27,7 @@ export default function Search(){
     const isMoreSearchData = useSelector(state => state.search.isMoreSearchData)
 
     useEffect(() => {
-        if (state){
-            dispatch(fetchAnimes(state.searchTerm, true))
-        }
+        dispatch(fetchAnimes(state.searchTerm, true))
     }, [dispatch, state])
 
     return (
@@ -49,8 +47,8 @@ export default function Search(){
                     <Loader 
                         type="BallTriangle"
                         color="white" 
-                        height={80} 
-                        width={80} /> 
+                        height={60} 
+                        width={60} />
                 </div> :
                 isMoreSearchData && 
                 <button

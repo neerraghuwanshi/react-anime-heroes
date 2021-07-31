@@ -1,9 +1,10 @@
 .container{
-    margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 50px);
+    padding: 20px;
+    margin-top: 80px;
+    min-height: calc(100vh - 80px);
     width: 100vw;
     position: absolute;
     top: 0;
@@ -11,15 +12,16 @@
 }
 
 .text{
+    text-align: center;
     color: var(--homeSearchBarButtonTextColor);
     font-family: 'Big Shoulders Stencil Text', cursive;
 }
 
 
-@media (max-height:400px){
+@media (max-height: 400px){
     .container{
-        margin: 40px 0;
-        min-height: calc(100vh - 80px);
+        margin-top: 60px;
+        min-height: calc(100vh - 60px);
     }
 }
 
@@ -29,7 +31,7 @@
     }
 }
 
-@media (min-width:375px){
+@media (min-width: 400px){
     .text{
         font-size: 2rem;
     }
@@ -43,6 +45,6 @@
 
 @media (min-width:1500px){
     .text{
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
 }

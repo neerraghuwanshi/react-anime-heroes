@@ -19,9 +19,7 @@ export default function Anime(){
     const error = useSelector(state => state.anime.error)
 
     useEffect(() => {
-        if (state){
-            dispatch(fetchAnime(state.malId))
-        }
+        dispatch(fetchAnime(state.malId))
     }, [dispatch, state])
     
     return (
@@ -39,58 +37,64 @@ export default function Anime(){
                     className={styles.image}
                     src={anime.image_url}
                     alt={anime.title}/>
-                <table className={styles.table}>
-                    <tbody>
-                        <tr>
-                            <th className={styles.key}>
-                                Name
-                            </th>
-                            <td className={styles.value}>
-                                {anime.title ? anime.title: '-'}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th className={styles.key}>
-                                Rank
-                            </th>
-                            <td className={styles.value}>
-                                {anime.rank ? anime.rank : '-'}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th className={styles.key}>
-                                Popularity
-                            </th>
-                            <td className={styles.value}>
-                                {anime.popularity ? anime.popularity : '-'}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th className={styles.key}>
-                                Duration
-                            </th>
-                            <td className={styles.value}>
-                                {anime.duration ? anime.duration : '-'}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th className={styles.key}>
-                                Rating
-                            </th>
-                            <td className={styles.value}>
-                                {anime.rating ? anime.rating : '-'}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th className={styles.key}>
-                                Aired
-                            </th>
-                            <td className={styles.value}>
-                                {anime.aired.string ? anime.aired.string : '-'}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+
+                <div className={styles.textContainer}>
+
+                    <div className={styles.row}>
+                        <h2 className={styles.key}>
+                            Name
+                        </h2>
+                        <p className={styles.value}>
+                            {anime.title ? anime.title: '-'}
+                        </p>
+                    </div>
+
+                    <div className={styles.row}>
+                        <h2 className={styles.key}>
+                            Rank
+                        </h2>
+                        <p className={styles.value}>
+                            {anime.rank ? anime.rank : '-'}
+                        </p>
+                    </div>
+
+                    <div className={styles.row}>
+                        <h2 className={styles.key}>
+                            Popularity
+                        </h2>
+                        <p className={styles.value}>
+                            {anime.popularity ? anime.popularity : '-'}
+                        </p>
+                    </div>
+
+                    <div className={styles.row}>
+                        <h2 className={styles.key}>
+                            Duration
+                        </h2>
+                        <p className={styles.value}>
+                            {anime.duration ? anime.duration : '-'}
+                        </p>
+                    </div>
+
+                    <div className={styles.row}>
+                        <h2 className={styles.key}>
+                            Rating
+                        </h2>
+                        <p className={styles.value}>
+                            {anime.rating ? anime.rating : '-'}
+                        </p>
+                    </div>
+
+                    <div className={styles.row}>
+                        <h2 className={styles.key}>
+                            Aired
+                        </h2>
+                        <p className={styles.value}>
+                            {anime.aired.string ? anime.aired.string : '-'}
+                        </p>
+                    </div>
+
+                </div>
             </>}
 
         </div>

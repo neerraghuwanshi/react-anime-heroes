@@ -15,11 +15,15 @@ export default function HomeSearchBar() {
 
     const onSubmitHandler = (event) => {
         event.preventDefault()
-        history.push({
-            pathname: `/search/${searchTerm}`,
-            state: { searchTerm },
-        })
-        dispatch(setSearchTerm(''))
+        if (searchTerm !== ''){
+            history.push({
+                pathname: `/search/${searchTerm}`,
+                state: { searchTerm },
+            })
+            dispatch(setSearchTerm(''))
+            const searchBar = event.target.children[0]
+            searchBar.blur()
+        }
     }
 
     const SetSearchTerm = (event) => {
